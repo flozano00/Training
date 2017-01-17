@@ -29,10 +29,12 @@ var divide = division(10, 5);
 console.log(divide);
 
 //Modulus(Division Remainder)
-function Mod(x, y){
-	return (x % y);
+function remain(x, y){
+	var sub = x - y;
+	return sub % 5;
 }
-var remainder = mod(10,4);
+
+var remainder = remain(22, 3);
 console.log(remainder);
 
 
