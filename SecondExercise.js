@@ -1,10 +1,10 @@
 //Second Try !
 
 //Subtraction
-function yearOfBirth(x){
+function subtraction(x){
 	return 2016 - x;
 	};
-var age = yearOfBirth(1989);
+var age = subtraction(1989);
 console.log(age);
 
 //Addition
