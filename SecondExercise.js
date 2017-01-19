@@ -1,4 +1,4 @@
-//Second Try !
+// Merging.
 
 //Subtraction
 function yearOfBirth(x){
