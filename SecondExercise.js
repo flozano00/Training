@@ -1,4 +1,4 @@
-//Second Try !
+
 
 //Subtraction
 function subtraction(x){
