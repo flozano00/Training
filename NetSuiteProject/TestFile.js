@@ -16,3 +16,5 @@ division(10, 2);
 
 remainder(4,1);
 remainder(10, 2);
+remainder("Hello", "World");
+
