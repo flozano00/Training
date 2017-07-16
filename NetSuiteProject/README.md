@@ -1,3 +1,4 @@
-Hello! 
+#Netsuite Agenda
 
- 	This is my first time using GitHub. Needless to say I'm learning efficiently through tutorials online. Hopefully this will help us collaborate quicker and easier!
+#I finished on video 60. Create a New File on the video called Mastery of Github.
+#I'm on Javascript Code Academy Golf Course.
