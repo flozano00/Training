@@ -1,3 +1,3 @@
-Hello! 
+##Feature Branch
 
- 	This is my first time using GitHub. Needless to say I'm learning efficiently through tutorials online. Hopefully this will help us collaborate quicker and easier!
+_Addition To Current Exercise.js script_
