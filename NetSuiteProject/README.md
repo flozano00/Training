@@ -5,3 +5,5 @@
 
 #Current Agenda Sunday, August 13, 2017 . 
 #Reinforce GitHub aswell Javascript Code Camp understanding String immutibility.
+
+#Global vs Local Scopes Javascript Code Camp
