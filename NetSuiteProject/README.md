@@ -7,3 +7,4 @@
 #Reinforce GitHub aswell Javascript Code Camp understanding String immutibility.
 
 #Global vs Local Scopes Javascript Code Camp
+#I'm currently on Counting Cards in Javascript Freecode Camp.
