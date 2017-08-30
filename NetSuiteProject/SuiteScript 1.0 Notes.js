@@ -7,11 +7,16 @@
  * Can I put variables in global scope in regards to these API calls?
  * Awnser: Yes you can.
  */
-
+/**
+ * What are these two variables For?
+ * recordId = will give me the record Id.
+ * recordType = Will get me the record Type.
+ */
 var recordId = nlapiGetRecordId();
 var recordType = nlapiGetRecordType();
 
-
+//In beforeLoad we strictly use nlapiGetFieldValue  for example
+//var phone = nlapiGetFieldValue('');
 
 function beforeLoad (type){
 
@@ -23,7 +28,10 @@ nlapiLogExecution('Debug', "This is the Record Type = ", recordType);
 
 /**
  * The Individual Wants to know the Reference Order Number of the Sales Order.
- * Awnser: This Worked Aswell!
+ * Awnser: This worked Aswell!
+ */
+/**
+ * On afterSubmit we have to use nlapiLoadRecord to get the information.
  */
 
 function afterSubmit (type){
@@ -38,7 +46,7 @@ function afterSubmit (type){
 
 }
 
-
+//--------------------------------------------------------------------------------------
 /**
  *  Monday August 28, 2017
  */
@@ -82,7 +90,7 @@ nlapiLogExecution('debug', "Record Type = ", recordType);
 
 
 };
-
+//------------------------------------------------------------------------------------
 //Notes Tuesday, August 29, 2017
 
 
@@ -109,3 +117,99 @@ function _logvalidation(value){
 		return false;
 	}
 }
+
+
+//------------------------------------------------------------------------------------------------
+
+/**
+ * Wednesday August 30, 2017
+ * What did I learn : Catch?
+ */
+
+function afterSubmit(type){
+	try {
+		var i_context = nlapiGetContext();
+	nlapiLogExecution('debug', 'afterSubmit()','The context is : '+i_context);
+
+	}
+	catch (exception){
+ 	nlapiLogExecution('Debug', 'catch Exception', 'exception : '+exception);
+
+
+	}
+}
+
+
+
+function _logvalidation(value){
+	if (value != null && value != undefined && value != Infinity && value != " " && value != NaN && value != 'Infinity' && value != 'null' && value != 'undefined'){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+/**
+ * I also learned how to use the Throw function within the try catch error. This will allow me to catch better errors.
+ * The throw function allows me to catch the error message and send it as user event.
+ * We also learned the nlapiGetLineItem Value aswell the beforeload function.
+ * Within the beforeload function we have to use the nlapiGetFieldValue & nlapiGetFieldValue.
+ * 
+ */
+
+
+/**
+ * What did you Learn?
+ * I learned the try ,catch, throw functions within SuiteScript. This only works on User Event scripts by allowing me to display error
+ * I also Learned alot of the 
+ */
+
+
+
+/**
+ * 
+ * Deployment on Sales Order.
+ * 
+ */
+function beforeSubmit(type){
+	try {
+		var phoneNumber = nlapiGetFieldValue('custbody16');
+		var email = nlapiGetFieldValue('custbody14');
+ 		nlapiLogExecution('Debug', 'Phone Number : ', +phoneNumber);
+ 		nlapiLogExecution('Debug', 'Email :', +email);
+ 		if (email == 0 && phoneNumber == 0){
+ //In User Event Scripts throw work's not alert.
+ 			throw("Please Enter Email & Phone Number.");
+ //The throw initiates the expected error. It is important to use through so that the program will not allow the submit function.
+ 			return false;
+ 		}
+ 		else if (email == 0){
+ 			throw ("Please Enter Email");
+ 		}
+ 		else if (phoneNumber == 0){
+ 			throw ("Please Enter Phone");
+ 		}
+ //Know the difference between nlapiGetCurrentLineItemValue and LineItemValue.
+ 	var ifCheckBox = nlapiGetLineItemValue('item', 'custcol_hc_salesorder_ifremoved',1);
+ 	nlapiLogExecution('Debug', 'If Check Box: ', "Check Box(T/F) : " + ifCheckBox);
+ 		if (ifCheckBox == 'T'){
+ 			nlapiRemoveLineItem("item", 1);
+
+ 		}
+
+
+ 		
+}
+	catch (exception){
+		nlapiLogExecution('Debug','Exception' , 'Exception: ' + exception);
+		if(exception == "Please Enter Phone" || exception == "Please Enter Email" || exception == "Please Enter Email & Phone Number.");
+//This concept is important because through will have the ability to send out the message.
+			throw exception;
+	}
+};
+
+
+
+
+
