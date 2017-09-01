@@ -1,0 +1,14 @@
+1) Deploy a script on Sales Order & copy the record using copy API , source the Start Date & End Date as of after one year.
+   Example: if Current SO Start Date ? 4 April 2017 , then the Start Date of copied Sales Order ?  4 April 2018 ( a year ahead of start date)
+
+2) Deploy a script of any transaction & if remove check-box is checked then remove  that line from that transaction using Remove Line API
+
+3) Deploy a script on Customer  and perform below operations –
+ 
+              A.)    If the email , phone  does not contain any values throw message as “ Please enter  Email & Phone”
+              B.)    If Email does not contain any values throw message as “ Please enter Email”
+              C.)    If Phone does not contain any values throw message as “ Please enter Phone”
+
+       4.    Disable button ‘Edit’ , ‘Cancel’ 
+       5.     When you go to list of Sales Order & click on edit throw a message ‘You cannot edit this record.’ 
+       6. Restrict the record from inline editing.

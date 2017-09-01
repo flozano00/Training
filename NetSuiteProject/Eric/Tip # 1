@@ -1,0 +1,32 @@
+/*Keep your tests separate from your implementation
+
+Do not include these test calls in your source file; 
+in professional practice, you will always test your code 
+separate from its definition. Rather, 
+first paste your function definitions into the browser console, 
+then paste these test calls into the console, and then run the code.*/
+
+
+console.log(add(8,2)); // => 10
+console.log(add(-5, 7)); // => 2
+console.log(add(0, 28)); // => 28
+
+console.log(subtract(5,3)); // => 2
+console.log(subtract(-2, -7)); // => 5
+console.log(subtract(132, 276)); // => -144
+
+console.log(multiply(10, 12)); // => 120
+console.log(multiply(-2, 8)); // => -16
+console.log(multiply(19, 76)); // => 1444
+
+console.log(divide(8, 2)); // => 4
+console.log(divide(-100, 4)); // => -25
+console.log(divide(5, -3)); // => -1.6666
+
+console.log(mod(8, 7)); // => 1
+console.log(mod(12, 5)); // => 2
+console.log(mod(123, 4)); // => 3
+
+
+
+You're definitely on the right track there; branching essentially allows us to maintain multiple copies of our file structure so that different contributors can work on different tasks within the project. They could even be working on the exact same files without impacting each other this way. However, the goal of a branch is not to keep it separate and isolated forever. What we want to happen is for those contributors to complete their tasks in their own branch, then *merge* their work into the main codebase (i.e. the `master` branch).We don't want to use branches to *permanently* segregate our files, but rather temporarily, while we are actively working on a feature or fix.then once the task is completed, we want to incorporate everything back into the main codebase on the `master` branch. In that way, the `master` branch is sort of "sacred"; it is the Production-ready code  we *never* want to introduce broken code onto `master`. We write our code in a branch, we test it thoroughly, and then we merge to `master`, usually via a Pull Request.(More on pull requests: https://help.github.com/articles/about-pull-requests/ and https://www.atlassian.com/git/tutorials/making-a-pull-request)
