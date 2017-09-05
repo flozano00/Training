@@ -1,10 +1,11 @@
 #Netsuite Agenda
 
-#I finished on video 60. Create a New File on the video called Mastery of Github.
-#I'm on Javascript Code Academy Golf Course.
+#**Tuesday September 5, 2017 **
 
-#Current Agenda Sunday, August 13, 2017 . 
-#Reinforce GitHub aswell Javascript Code Camp understanding String immutibility.
+##Updates: 
 
-#Global vs Local Scopes Javascript Code Camp
-#I'm currently on Counting Cards in Javascript Freecode Camp.
+1. Make sure that my Files are *organized*.
+2. Updates my SuiteScript Notes. Everything Must be recorderd.
+
+----------------------------------
+
