@@ -210,6 +210,121 @@ function beforeSubmit(type){
 };
 
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+ * Wensday, September 6, 2017
+ * The issue was on line 233. Here we realized that if their isn't a value make sure to leave the value as "" NOT " ". The space is also another character.
+ */
+function pageInit(){
+	var context = nlapiGetContext();
+	nlapiLogExecution('Debug', 'Context:', 'The Context is: ' + context);
+	var user = context.getName();
+	nlapiLogExecution('Debug', 'User: ', 'The User is :' + user);
+
+};
 
 
+
+
+function saveRecord(){
+	try{
+		var phoneNumber = nlapiGetFieldValue('custbody16');
+		nlapiLogExecution('Debug', 'phone number', 'The Phone Number is' + phoneNumber);
+	//Space is also a character make sure it's not spaced.
+		if (phoneNumber == "" || phoneNumber == null){
+		 alert("Please Enter a Phone Number.");
+		 return false;
+		}
+		return true;
+
+	}
+	catch (exception){
+	nlapiLogExecution('Debug', 'Catch Error: ','The error is: ' + exception);
+
+	}
+}
+
+/*
+ * -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ *  
+ */
+
+
+/**
+ * What did you Learn?
+ * I learned the try ,catch, throw functions within SuiteScript. This only works on User Event scripts by allowing me to display error
+ * 
+ */
+
+
+
+/**
+ * 
+ * Deployment on Sales Order.
+ * 
+ */
+
+/**
+ * Here I satisfied the Third Assignment A, B, C.
+ * 
+ * 
+ */
+
+/**
+ * 1) Deploy a script on Sales Order & copy the record using copy API , source the Start Date & End Date as of after one year. I.e.if Current SO Start Date ?
+ * 4 April 2017 , then the Start Date of copied Sales Order ?  4 April 2018 ( a year ahead of start date)
+ * 2) Deploy a script of any transaction & if remove check-box is checked then remove  that line from that transaction using Remove Line API
+ * 3)Deploy a script on Customer  and perform below operations –
+ 
+              A.)    If the email , phone  does not contain any values throw message as “ Please enter  Email & Phone”
+              B.)    If Email does not contain any values throw message as “ Please enter Email”
+              C.)    If Phone does not contain any values throw message as “ Please enter Phone”
+
+       4.    Disable button ‘Edit’ , ‘Cancel’ 
+       5.     When you go to list of Sales Order & click on edit throw a message ‘You cannot edit this record.’ 
+      
+ * 
+ * 
+ */ 
+function beforeSubmit(type){
+	 	var ifCheckBox = nlapiGetLineItemValue('item', 'custcol_hc_salesorder_ifremoved',1);
+ 	nlapiLogExecution('Debug', 'beforeSubmit():  ', "Check Box(T/F) : " + ifCheckBox);
+ 		if (ifCheckBox == 'T'){
+ 			nlapiRemoveLineItem("item", 1);
+
+ 		};
+}
+
+
+function afterSubmit(type){
+	try {
+		var phoneNumber = nlapiGetFieldValue('custbody16');
+		var email = nlapiGetFieldValue('custbody14');
+ 		nlapiLogExecution('Debug', 'Phone Number : ', +phoneNumber);
+ 		nlapiLogExecution('Debug', 'Email :', +email);
+ 		if (email == 0 && phoneNumber == 0){
+ //In User Event Scripts throw work's not alert.
+ 			throw("Please Enter Email & Phone Number.");
+ //The throw initiates the expected error. It is important to use through so that the program will not allow the submit function.
+ 			return false;
+ 		}
+ 		else if (email == 0 || email == NaN){
+ 			throw ("Please Enter Email");
+ 		}
+ 		else if (phoneNumber == 0 || email == NaN){
+ 			throw ("Please Enter Phone");
+ 		}
+ //Know the difference between nlapiGetCurrentLineItemValue and LineItemValue.
+
+
+
+ 		
+}
+	catch (exception){
+		nlapiLogExecution('Debug','Exception' , 'Exception: ' + exception);
+		if(exception == "Please Enter Phone" || exception == "Please Enter Email" || exception == "Please Enter Email & Phone Number.");
+//This concept is important because through will have the ability to send out the message.
+			throw exception;
+	}
+};
 
