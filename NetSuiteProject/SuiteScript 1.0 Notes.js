@@ -211,38 +211,6 @@ function beforeSubmit(type){
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
-/*
- * Wensday, September 6, 2017
- * The issue was on line 233. Here we realized that if their isn't a value make sure to leave the value as "" NOT " ". The space is also another character.
- */
-function pageInit(){
-	var context = nlapiGetContext();
-	nlapiLogExecution('Debug', 'Context:', 'The Context is: ' + context);
-	var user = context.getName();
-	nlapiLogExecution('Debug', 'User: ', 'The User is :' + user);
-
-};
-
-
-
-
-function saveRecord(){
-	try{
-		var phoneNumber = nlapiGetFieldValue('custbody16');
-		nlapiLogExecution('Debug', 'phone number', 'The Phone Number is' + phoneNumber);
-	//Space is also a character make sure it's not spaced.
-		if (phoneNumber == "" || phoneNumber == null){
-		 alert("Please Enter a Phone Number.");
-		 return false;
-		}
-		return true;
-
-	}
-	catch (exception){
-	nlapiLogExecution('Debug', 'Catch Error: ','The error is: ' + exception);
-
-	}
-}
 
 /*
  * -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -281,7 +249,7 @@ function saveRecord(){
               C.)    If Phone does not contain any values throw message as “ Please enter Phone”
 
        4.    Disable button ‘Edit’ , ‘Cancel’ 
-       5.     When you go to list of Sales Order & click on edit throw a message ‘You cannot edit this record.’ 
+       5.    Create Pop Up Messages on Save Record Client Script. 
       
  * 
  * 
@@ -327,4 +295,61 @@ function afterSubmit(type){
 			throw exception;
 	}
 };
+
+/**
+ * ------------------------------------------------------------------------------------------------------------------------------
+ * 
+ */
+// Here we learned the PageInit function also rename the functions differently to make sure a better format.
+ 
+function alert_pageInit(){
+	var context = nlapiGetContext();	
+	var user = context.getName();
+	nlapiLogExecution('Debug', 'User: ', 'The User is :' + user);
+	alert("Hello: " + user + "Begin the demo !");
+ 	return true;
+
+ }
+
+ /*
+ * Wensday, September 6, 2017
+ * The issue was on line 331. Here we realized that if their isn't a value make sure to leave the value as "" NOT " ". The space is also another character.
+ */
+
+
+
+
+
+
+
+function saveRecord(){
+	try{
+		var phoneNumber = nlapiGetFieldValue('custbody16');
+		var email = nlapiGetFieldValue("custbody14");
+		nlapiLogExecution('Debug', 'phone number', 'The Phone Number is' + phoneNumber);
+		nlapiLogExecution('Debug', 'The Current Email : ', 'Email : ' + email);
+	//Space is also a character make sure it's not spaced.
+		if (phoneNumber == "" && email == ""){
+		 alert("Please Enter a Phone Number & Email.");
+		 return false;
+		}
+		else if (phoneNumber == ""){
+		alert("Please enter a Phone number.");
+		return false;
+		}
+		else if (email == ""){
+		alert("Please enter an Email!")
+		return false;
+		}
+
+
+
+		return true;
+
+	}
+	catch (exception){
+	nlapiLogExecution('Debug', 'Catch Error: ','The error is: ' + exception);
+
+	}
+}
 
