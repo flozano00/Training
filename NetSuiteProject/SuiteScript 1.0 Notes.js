@@ -353,3 +353,70 @@ function saveRecord(){
 	}
 }
 
+/**
+ * --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ * Thursday September 7 2017
+ * Here we learned how to disable and Hide standard UI Buttons. This will give the ability to understand the Form Object .
+ * We learned that we used the Google Chrome to find the Internal ID's for this button. The Importance? It will help segregate duties.
+ * What is the request parameter for ?
+ *  
+ */
+
+function beforeLoad_disableEditButton(type, form, request){
+//What is the request parameter for?
+//The request parameter these are for REST calls generally this isnt the issue. It gets the vlues from the form and actually and URL and basically the server calls. This value passing or the form then we use the request. the request parameter is important.
+	try{
+	var status = nlapiGetFieldValue('status');
+		if (type == 'view'){
+		nlapiLogExecution('debug', 'Before Load Disable Button Status View', 'The current type is :' + type);
+			if (status == 'Billed'){
+		nlapiLogExecution('debug', 'The Current type of sales order: ', "The current type is : " + status);
+				var editButton = form.getButton("edit");
+				var returnButton = form.getButton("return");
+				nlapiLogExecution('Debug', 'VIEWMODE: before Load Disabled Button Status: ', "View Button Edit " + editButton);
+				nlapiLogExecution('Debug', 'VIEWMDOE: before Load Disabled Button Status: ', "View Button Return" + returnButton);
+				if(editButton){
+					editButton.setVisible(false);
+				}
+				if(returnButton){
+					returnButton.setVisible(false);
+				}
+			}
+
+
+		}
+		if (type == "edit"){
+			nlapiLogExecution('Debug', 'Before Load Disable Button type Edit', 'The Current type is ' + type);
+ 			if (status == "Billed"){
+ 			nlapiLogExecution('Debug', 'Before Load Disable Button Status Edit', 'The current status is ' + status);					
+ 			var calculateTax = form.getButton("custpage_ava_calculatetax");
+ 			var shipToAddress = form.getButton("custpage_ava_validateshipto");
+ 			var billToAddress = form.getButton("custpage_ava_validatebillto");
+ 			//Can't Remove this button.
+ 			nlapiLogExecution('Debug', 'Before Load Disable add Multiple on edit', 'The Validate Ship To Address Button: ' + shipToAddress);
+ 			nlapiLogExecution('Debug', 'Before Load Disable Validate Bill To Address', "The Validate Bill to Address Buton: " + billToAddress);
+ 			//The Calculate Tax Button has been removed.
+ 			nlapiLogExecution('Debug', 'Before Load Calculate Tax button', "The Calculate Tax Button: " + calculateTax);
+ 			if (billToAddress){
+ 				billToAddress.setVisible(false);
+ 			
+ 			}
+ 			if (calculateTax){
+ 				calculateTax.setVisible(false);
+ 			}
+ 			if (shipToAddress){
+ 				shipToAddress.setVisible(false);
+ 			}
+
+ 			}
+			
+		}
+		
+
+	}
+	catch(exception){
+		nlapiLogExecution('Debug', 'Exception : ', 'Exception Error :' + exception);
+
+
+	}
+}
