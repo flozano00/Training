@@ -8,3 +8,14 @@
 **Accomplished** : Basic Javascript, GitHub Fundamentals, Object Oriented and Functional Programming.
 
 **Goals**: Review Javascript, recieve small suitescript assignments to improve on my development training.
+
+**Course: Basic Algorithm Scripting**
+
+5. Find the Longest Word in a String
+6. Title Case a Sentence
+7. Return Largets Numbers in Arrays
+8. Confirm the Ending
+9. Repeat a string repeat a string
+10. Truncate a String
+
+*Completed*: These are the individual excersies I've recorded and completed. Up to Date: Sunday, September 10, 2017.
