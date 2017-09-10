@@ -5,6 +5,6 @@ Free Code Camp - NetSuite Training
 **Goal**: Learn SuiteScript.
 **Current Task**: JavScript: Basic Algorithm Scripting
 
-**Accomplished** : Basic Javascript, GitHub Fundamentals
+**Accomplished** : Basic Javascript, GitHub Fundamentals, Object Oriented and Functional Programming.
 
 **Goals**: Review Javascript, recieve small suitescript assignments to improve on my development training.
