@@ -1,0 +1,10 @@
+Free Code Camp - NetSuite Training
+
+**Sunday, September 10, 2017**
+
+**Goal**: Learn SuiteScript.
+**Current Task**: JavScript: Basic Algorithm Scripting
+
+**Accomplished** : Basic Javascript, GitHub Fundamentals
+
+**Goals**: Review Javascript, recieve small suitescript assignments to improve on my development training.
