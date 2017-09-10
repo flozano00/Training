@@ -1,6 +1,6 @@
-Free Code Camp - NetSuite Training
+## Free Code Camp - NetSuite Training
 
-**Sunday, September 10, 2017**
+# **Sunday, September 10, 2017**
 
 **Goal**: Learn SuiteScript.
 **Current Task**: JavaScript: Basic Algorithm Scripting
