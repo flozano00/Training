@@ -3,7 +3,7 @@ Free Code Camp - NetSuite Training
 **Sunday, September 10, 2017**
 
 **Goal**: Learn SuiteScript.
-**Current Task**: JavScript: Basic Algorithm Scripting
+**Current Task**: JavaScript: Basic Algorithm Scripting
 
 **Accomplished** : Basic Javascript, GitHub Fundamentals, Object Oriented and Functional Programming.
 
