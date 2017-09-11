@@ -1,0 +1,34 @@
+/**
+ * Chunky Monkey
+ *
+ * Write a function that splits an array (first argument) into groups the 
+ * length of size (second argument) and returns them as a two-dimensional array.
+ *
+ * Website:
+ * www.pythontutor.com/javascript.html#mode=display
+ */
+//Here we assessed that the value of size is 2
+function chunkArrayInGroups(arr, size) {
+ 	var placeHolder = size;
+//Therefore once we have the value of size is 2. placeHolder = 2;
+ 	var i = 0;
+ 	var answer = [];
+ 	while(i < arr.length - size +1){
+ 		answer.push(arr.slice(i, placeHolder));
+ 		placeHolder += size;
+ 		i += size;
+ 	}
+ 	if (arr.length % size !== 0){
+  	var remainder = Math.floor(arr.length % size);
+  	answer.push(arr.slice(arr.length - remainder, arr.length))
+  	console.log(remainder);
+ 	}
+  
+  return answer;
+}
+/*
+ * The Console. Log Global Frame Ran First.
+ */
+console.log(
+	chunkArrayInGroups(["a", "b", "c", "d"], 2)
+	);
