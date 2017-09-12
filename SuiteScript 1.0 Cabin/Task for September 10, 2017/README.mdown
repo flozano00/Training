@@ -1,7 +1,7 @@
 ## Tuesday September 12, 2017
 
 **1.**	Write a script to automatically bill sales orders as soon as the orders are approved.
-# Take Off “Advanced Shipment”.
+ Take Off **“Advanced Shipment”**.
 
 **2.**	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved. **Make sure on Invoice**
  
