@@ -1,6 +1,6 @@
 1) Deploy a script of any transaction & if remove check-box is checked then remove  that line from that transaction using Remove Line API
 
-2) Deploy a script on Customer  and perform below operations –
+2) Deploy a script on Sales Order  and perform below operations –
  
               A.)    If the email , phone  does not contain any values throw message as “ Please enter  Email & Phone”
               B.)    If Email does not contain any values throw message as “ Please enter Email”

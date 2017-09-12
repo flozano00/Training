@@ -1,0 +1,13 @@
+## Tuesday September 12, 2017
+
+**1.**	Write a script to automatically bill sales orders as soon as the orders are approved.
+# Take Off “Advanced Shipment”.
+
+**2.**	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved. **Make sure on Invoice**
+ 
+
+**3.**	Build a workflow for customer approval. Once click approved the customer needs to be active. Until then the customer needs to be inactive (Reject and Pending approval) . 
+Workflow: Customer Approval Workflow **Finished**
+
+**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. **Finished**
+**5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST
