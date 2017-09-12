@@ -20,4 +20,4 @@ Workflow: Customer Approval Workflow **Finished**
 @flozano00 you could create a scheduled or map/reduce script, set to execute at 10 pm nightly, that does this
 **I'm Currently Working On This**
 
-Tuesday, September 12, 2017
+Tuesday, September 12, 2017 
