@@ -1,5 +1,8 @@
 /*
  *	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved.
+ *	CUSTOM FORM: Z -HM Invoice Form
+ *  Location: Test
+ *  Item: ACC00001
  */
 
 function afterSubmit_email(type){
@@ -8,8 +11,9 @@ nlapiLogExecution('Audit', 'After Submit Function', 'Begin');
  	if (type == "create"){
  	var recordId = nlapiGetRecordId();
  	var customer = nlapiGetFieldText("entity"); //I extracted the individual's name but using nlapiGetFieldText on a drop down category.
- 	nlapiLogExecution('Debug', 'The Customer name is : ', "The customer: " + customer) // 1237 Here we use nlapiGetFieldText to get the actual value of string.
+ 	nlapiLogExecution('Debug', 'The Customer name is : ', "The customer: " + customer) // 1237 Here we use nlapiGetFieldText to get the actual value of string. It's still not working!!!
  	nlapiLogExecution('Debug', 'Record Id', 'The Record Id : ' + recordId);
+ 	//Understand the concept of nalpiGetNewRecord();
  	var recordObj = nlapiGetNewRecord();
  	nlapiLogExecution('Debug', 'Sales Order: ', 'The Sales Order Object is ' + recordObj);
  	var printPdf = nlapiPrintRecord('Transaction', recordId, 'PDF', null);

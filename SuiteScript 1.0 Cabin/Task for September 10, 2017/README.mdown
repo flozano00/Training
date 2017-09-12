@@ -2,8 +2,9 @@
 
 **1.**	Write a script to automatically bill sales orders as soon as the orders are approved.
  Take Off **“Advanced Shipment”**.
+ **I have to remove every single sales order that is pending within HoneyComb.**
 
-**2.**	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved. **Make sure on Invoice**
+**2.**	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved. **Make sure on Invoice** **Finished**
  
 
 **3.**	Build a workflow for customer approval. Once click approved the customer needs to be active. Until then the customer needs to be inactive (Reject and Pending approval) . 
@@ -14,3 +15,4 @@ Workflow: Customer Approval Workflow **Finished**
 
 
 **5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST
+@flozano00 you could create a scheduled or map/reduce script, set to execute at 10 pm nightly, that does this
