@@ -10,4 +10,7 @@
 Workflow: Customer Approval Workflow **Finished**
 
 **4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. **Finished**
+
+
+
 **5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST
