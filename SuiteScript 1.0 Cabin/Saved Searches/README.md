@@ -16,6 +16,6 @@
  
  **6.**  getValue. 
 
- These methods can be found within the console browser . Once accessed you are able to query out the information. In other words using Saved searches on the browser is the simplst method of analyzing data on Netsuite.
+ These methods can be found within the console browser . Once accessed you are able to query out the information. In other words using Saved searches on the browser is the simplist method of analyzing data on Netsuite.
 
  Saved Searches start at 0 based indexing, therefore the first line of detail starts at 0.

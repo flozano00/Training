@@ -26,7 +26,9 @@ var salesOrderSearch = nlapiSearchRecord("salesorder",null,
    "AND", 
    ["status","anyof","SalesOrd:A"], 
    "AND", 
-   ["mainline","is","T"]
+   ["mainline","is","T"],
+   "AND",
+   ["trandate", "within", "9/13/2017"]
 ], 
 [
    new nlobjSearchColumn("internalid",null,null)
