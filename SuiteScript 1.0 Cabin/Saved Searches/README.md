@@ -4,10 +4,15 @@
 
 **Methods of Saved Search**: There are several methods within the saved search such as
  **1.** getAllColumns 
+
  **2.**  getId 
+
  **3.**  getKey 
+
  **4.**  getRecordType 
+
  **5.**  getText
+ 
  **6.**  getValue. 
 
  These methods can be found within the console browser . Once accessed you are able to query out the information. In other words using Saved searches on the browser is the simplst method of analyzing data on Netsuite.

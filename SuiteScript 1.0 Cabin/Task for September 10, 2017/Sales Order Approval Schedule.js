@@ -1,3 +1,12 @@
+/**
+ * TYPE User Event
+ * NAME Sales Order Approval Schedule
+ *
+ * 
+ */
+
+
+
 function salesOrder_Approval(type){
 	try{
 nlapiLogExecution('Audit', 'Sales Order Approval Fuction', 'Begin');
@@ -6,7 +15,7 @@ var recordId = nlapiGetRecordId();
 
 
 
-nlapiLogExecution("Debug", "The Record Type is: ", "Record Type" + recordType);
+nlapiLogExecution("Debug", "The Record Type is: ", "Record Type: " + recordType);
 nlapiLogExecution("Debug", "The Record Id is: ", "The Record ID: " + recordId);
 nlapiLogExecution('Emergency', 'Status Change', 'Begin');
 
@@ -45,7 +54,7 @@ for (var i = 0; i < salesOrderSearch.length; i++){
 nlapiLogExecution('Debug', 'Sales Id for loop', 'Sales Id Result: ' + JSON.stringify(salesId));
 
 var salesRecordID = salesId;
-nlapiLogExecution('Debug', 'Dynamic Sales Record ID', 'The Sales Record ID is' + salesRecordID);
+nlapiLogExecution('Debug', 'Dynamic Sales Record ID', 'The Sales Record ID is: ' + salesRecordID);
 
 
 
@@ -62,8 +71,13 @@ for (var i = 0; i < salesRecordID.length; i++){
 
 
 
-
-	var salesObj = nlapiLoadRecord(recordType, salesRecordID[i]);
+//Make sure to set the type here.
+/**
+ * 
+ *------------------------IMPORTANT CONCEPT-------------------------------------------------------
+ * var salesObj = nlapiLoadRecord('salesorder', salesRecordID[i]);
+ */
+	var salesObj = nlapiLoadRecord('salesorder', salesRecordID[i]);
 	nlapiLogExecution("Debug", "The Sales Object is ", "The Sales Object " + salesObj);
 	var salesStatus = salesObj.getFieldText('orderstatus');
 	nlapiLogExecution('Debug', 'Sales Status', 'The Sales Status : ' + JSON.stringify(salesStatus));
