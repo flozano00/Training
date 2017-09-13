@@ -41,6 +41,7 @@ for (var i = 0; i < salesOrderSearch.length; i++){
  */
 	salesId.push(salesOrderSearch[i].getValue('internalid'));
 }
+
 nlapiLogExecution('Debug', 'Sales Id for loop', 'Sales Id Result: ' + JSON.stringify(salesId));
 
 var salesRecordID = salesId;
@@ -51,26 +52,37 @@ nlapiLogExecution('Debug', 'Dynamic Sales Record ID', 'The Sales Record ID is' +
 
 
 // Change the record ID with the Sales Record ID that relates to the saved search.
-var salesObj = nlapiLoadRecord(recordType, recordId);
-nlapiLogExecution("Debug", "The Sales Object is ", "The Sales Object " + salesObj);
-var salesStatus = salesObj.getFieldText('orderstatus');
-nlapiLogExecution('Debug', 'Sales Status', 'The Sales Status : ' + JSON.stringify(salesStatus));
+// 
+// Keep on practing loops
 
-if (salesStatus == "Pending Approval"){
-//Issue is that you we were using setFieldValue
-//Make sure to use setFieldText if this issue persist.
-//nlapiSetFieldText('orderstatus', 'Pending Fulfillment');
-	salesObj.setFieldText('orderstatus', 'Pending Fulfillment');
-	var approved = salesObj.getFieldValue('orderstatus')
-//Always make sure to get the field value of the approved before doing log executions!
-	nlapiLogExecution('Debug', 'Sales Status Change: ', "The Approved Status " + approved);
-	nlapiSubmitRecord(salesObj, true, true);
-	//nlapiLogExecution('Debug', 'Sales Status Change: ', "The Approved Status " + approved)
-	nlapiLogExecution("Audit", "Sales Order Approval Schedule", "End");
+
+
+//The loop will allow you to individual get every single record ID dynamically.
+for (var i = 0; i < salesRecordID.length; i++){
+
+
+
+
+	var salesObj = nlapiLoadRecord(recordType, salesRecordID[i]);
+	nlapiLogExecution("Debug", "The Sales Object is ", "The Sales Object " + salesObj);
+	var salesStatus = salesObj.getFieldText('orderstatus');
+	nlapiLogExecution('Debug', 'Sales Status', 'The Sales Status : ' + JSON.stringify(salesStatus));
+
+	if (salesStatus == "Pending Approval"){
+	//Issue is that you we were using setFieldValue
+	//Make sure to use setFieldText if this issue persist.
+	//nlapiSetFieldText('orderstatus', 'Pending Fulfillment');
+		salesObj.setFieldText('orderstatus', 'Pending Fulfillment');
+		 var approved = salesObj.getFieldValue('orderstatus')
+	//Always make sure to get the field value of the approved before doing log executions!
+		nlapiLogExecution('Debug', 'Sales Status Change: ', "The Approved Status " + approved);
+		nlapiSubmitRecord(salesObj, true, true);
+		//nlapiLogExecution('Debug', 'Sales Status Change: ', "The Approved Status " + approved)
+		nlapiLogExecution("Audit", "Sales Order Approval Schedule", "End");
+	}
+
+
 }
-
-
-
 
 
 
