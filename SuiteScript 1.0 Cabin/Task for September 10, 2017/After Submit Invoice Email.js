@@ -67,7 +67,8 @@ nlapiSubmitRecord(recordObj, true, true);
  * Source: http://codeboxllc.com/ksc/2011/12/31/scripting-tip-10-generating-email-with-invoice-pdf-attachment/
  *
  * I'm not sure if this is the problem, but I don't believe your defining rec correctly; it shouldn'bt be an Array, just an Object. 
- * It still might actually work fine the way you have it, but its a bit misleading to define it as an Array. Also it's unnecessary to load the current record using nlapiLoadRecord
+ * It still might actually work fine the way you have it, but its a bit misleading to define it as an Array. 
+ * Also it's unnecessary to load the current record using nlapiLoadRecord
  * just use nlapiGetNewRecord
  * var recordObj = nlapiGetNewRecord();
  *
