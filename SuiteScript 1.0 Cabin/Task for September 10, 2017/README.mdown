@@ -4,8 +4,6 @@
 
 **1.1** Make sure the Item & Location are correct. In this case we used ACC00003 and Boston Location
 
-**1.2** Make sure to set the "Pending Fullfillment" automatically. Regardless of it setting to **Pending Approval**
-
 
 **2.**	Write a script to automatically email the customer the PDF copy of the invoice as soon as the invoice is created and approved. **Make sure on Invoice** + **Finished**
  
