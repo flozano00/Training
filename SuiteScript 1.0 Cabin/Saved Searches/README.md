@@ -40,19 +40,3 @@
   - 	The SQL WHERE Clause. The WHERE clause is used to filter records.
   4.	the columns parameter allows for the results to show. Therefore the new nlobjSearchColumn are the results and the ability to view the results.
  
-### Example 1.1
-
-
-'var jobSearch = nlapiSearchRecord("job",null,
-[
-   ["internalid","anyof","1660","1666","1667","1668","1669","1670","1671","1672","1675"]
-], 
-[
-   new nlobjSearchColumn("custentity_client",null,null), 
-   new nlobjSearchColumn("jobtype",null,null), 
-   new nlobjSearchColumn("percentcomplete",null,null), 
-   new nlobjSearchColumn("companyname",null,null), 
-   new nlobjSearchColumn("entitystatus",null,null), 
-   new nlobjSearchColumn("title","projectTask",null)
-]
-);'
