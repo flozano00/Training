@@ -43,7 +43,7 @@
 ### Example 1.1
 
 
-var jobSearch = nlapiSearchRecord("job",null,
+'var jobSearch = nlapiSearchRecord("job",null,
 [
    ["internalid","anyof","1660","1666","1667","1668","1669","1670","1671","1672","1675"]
 ], 
@@ -55,4 +55,4 @@ var jobSearch = nlapiSearchRecord("job",null,
    new nlobjSearchColumn("entitystatus",null,null), 
    new nlobjSearchColumn("title","projectTask",null)
 ]
-);
+);'
