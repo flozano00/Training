@@ -1,6 +1,6 @@
 ## Tuesday September 12, 2017
 
-**1.**	Write a script to automatically bill sales orders as soon as the orders are approved. **Finished**
+**1.**	Write a script to automatically bill sales orders as soon as the orders are approved. **Finished** its' not billed yet. it needs to be fully billed.
 
 **1.1** Make sure the Item & Location are correct. In this case we used ACC00003 and Boston Location
 
@@ -11,11 +11,11 @@
 **3.**	Build a workflow for customer approval. Once click approved the customer needs to be active. Until then the customer needs to be inactive (Reject and Pending approval) . 
 Workflow: Customer Approval Workflow + **Finished**
 
-**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. + **Finished**
+**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. + **Finished** Make a field change pop up on terms or payment method.
 
 
 
-**5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST. **Finished**
+**5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST. **Finished** have more then 1000 records and get the script to work regardless of how many records.
 
 @flozano00 you could create a scheduled or map/reduce script, set to execute at 10 pm nightly, that does this
 **I'm Currently Working On This** **
