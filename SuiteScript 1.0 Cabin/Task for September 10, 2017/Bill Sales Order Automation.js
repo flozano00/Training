@@ -41,7 +41,18 @@ function afterSubmit (type){
  		var shipmentUpdate = fulFillmentobj.getFieldText('shipstatus');
  		nlapiLogExecution('Emergency', 'Shipment Status', "shipment " + shipmentUpdate);
  		id = nlapiSubmitRecord(fulFillmentobj);
- 		var invrec =  nlapiTransformRecord('itemfulfillment', id, 'invoice');
+ 	/**
+ 	 * 
+ 	 * Invoice Record can only be transformed via Sales Order not Item Fullfillment.
+ 	 */
+ 		var invrec =  nlapiTransformRecord('salesorder', recordId, 'invoice');
+ 		id = nlapiSubmitRecord(invrec);
+ 	//	var invobj =  nlapiLoadRecord('invoice', id);
+ 		//var invrecord = nlapiLoadRecord('invoice', id);
+ 		nlapiLogExecution('Debug', 'Invoice Status', "Invoice Status" + invrecord);
+ 		i 
+
+
  		nlapiLogExecution('Debug', 'Invoice Record', 'Invoice Record' + invrec);
 }
  	};

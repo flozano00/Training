@@ -2,10 +2,9 @@
 
 **1.**	Write a script to automatically bill sales orders as soon as the orders are approved.  #### **NOT FINISHED**
 
-<<<<<<< HEAD
+
 **1.**	Write a script to automatically bill sales orders as soon as the orders are approved. **Finished** its' not billed yet. it needs to be fully billed.
-=======
->>>>>>> e3fe83d4a42e8803dbc1e804574f019204bf7c14
+
 
 **1.1** Make sure the Item & Location are correct. In this case we used ACC00003 and Boston Location
  			##### **1.2** The isssue here is that it's pending Bill it must be **FULLY BILLED!!!** 
@@ -17,16 +16,9 @@
 **3.**	Build a workflow for customer approval. Once click approved the customer needs to be active. Until then the customer needs to be inactive (Reject and Pending approval) . 
 Workflow: Customer Approval Workflow + **Finished**
 
-<<<<<<< HEAD
-**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. + **Finished** Make a field change pop up on terms or payment method.
-=======
-**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. +  **Make sure to set the alert system as prompt on a field changed in regards to Payment Method. Not Terms because Terms is being sourced which will afect the alert system.** #### **NOT FINISHED**
->>>>>>> e3fe83d4a42e8803dbc1e804574f019204bf7c14
+
+**4.**	If the customer has terms associated, then write a script to display a pop-up message saying, “you cannot select a payment method” if a user selects a payment method on the sales order and Invoice. +  **Make sure to set the alert system as prompt on a field changed in regards to Payment Method. Not Terms because Terms is being sourced which will afect the alert system.** #### **FINISHED**
 
 
+**5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST. **Finished** **have more then 1000 records and get the script to work regardless of how many records.**
 
-**5.**	Write a script to automatically update batch of sales orders with pending approval status to mark it approved. This needs to run every night at 10 PM EST. **Finished** have more then 1000 records and get the script to work regardless of how many records.
-
-@flozano00 you could create a scheduled script.
-
-Wednesday, September 13, 2017
