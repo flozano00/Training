@@ -4,19 +4,37 @@ nlapiLogExecution("audit","After Submit", "Begin");
 	var salesId = nlapiGetRecordId();
 	var salesType = nlapiGetRecordType();
 	var salesObj = nlapiLoadRecord(salesType, salesId);
-nlapiLogExecution('Debug', 'Sales Object', salesObj);
-	va
+nlapiLogExecution('Debug', 'Sales Object', salesObj); 
  	var date = salesObj.getFieldValue("trandate");
     var itemcount = salesObj.getLineItemCount('item');
+    var customer = salesObj.getFieldText('entity');
+    var job = salesObj.getFieldText('job');
+    var status = salesObj.getFieldText('orderstatus');
+    var memo = salesObj.getFieldValue("memo");
+    var po = salesObj.getFieldValue("otherrefnum");
+    var orderNumber = salesObj.getFieldValue("tranid");
+
+
+nlapiLogExecution('Debug', 'Order Number: ', orderNumber);
+nlapiLogExecution('Debug', 'Job', 'Job: ' + job);
+nlapiLogExecution('Debug', 'po', 'PO: ' + po);
+nlapiLogExecution('Debug', 'Memo', "Memo: " + memo);
+nlapiLogExecution('Debug', 'Customer: ', "Customer: " + customer);
 nlapiLogExecution('Debug', 'Item Count', itemcount);
  	for(var i = 1;  i <= itemcount; i++) {
-		var item = salesObj.getLineItemText('item', 'item', i);
+		var item = salesObj.getLineItemText('item', 'item', i); // Get Item Value || Text.
 		nlapiLogExecution('Debug', 'Item', "Item " + item);
 		nlapiLogExecution('Debug', 'Date: ', date);
 		var customSalesOrder = nlapiCreateRecord('customrecord_hc_frank_customrecord_sales');
 		nlapiLogExecution('DEBUG','custom Record',customSalesOrder);
 		customSalesOrder.setFieldValue('custrecord_hc_frank_date', date); //Set Date Value.
 		customSalesOrder.setFieldValue("custrecord_hc_frank_itemname", item); //Set Item Value.
+		customSalesOrder.setFieldValue("custrecord_hc_frank_customername", customer); //Set Customer Name.
+		customSalesOrder.setFieldValue("custrecord_hc_frank_status", status); //Set Status
+		customSalesOrder.setFieldValue("custrecordcustrecord_hc_frank_memo", memo); //Set Memo
+		customSalesOrder.setFieldValue("custrecord_hc_frank_po", po); //Set PO.
+		customSalesOrder.setFieldValue("custrecord_hc_frank_job", job); //Set Job.
+		customSalesOrder.setFieldValue("custrecord_hc_frank_ordernumber", orderNumber);
 		// nlapiLogExecution('Debug', 'Date', "Date" + cusDate);
 /**
  * ------------------------NLAPISUBMITRECORD ON FOR LOOP IS EXTREMELY IMPORTANT ---------------------------------------------------------------
