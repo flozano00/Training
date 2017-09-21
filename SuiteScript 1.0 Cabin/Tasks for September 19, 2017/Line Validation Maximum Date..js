@@ -36,13 +36,19 @@ nlapiLogExecution('Debug', 'Validate Line', "Begin");
  			if (myDate1 > myDate2 && myDate1 > myDate3){
  	 			var myDateFinal1 = nlapiDateToString(myDate1);
  	nlapiLogExecution('Debug', 'My Date Final 1" ', myDateFinal1);
- 		 		nlapiSetFieldValue('custcol_hc_date4', myDateFinal1);
- 				var date4 = nlapiGetFieldValue('custcol_hc_date4');
+ 		 		nlapiSetCurrentLineItemValue('item','custcol_hc_date4', myDateFinal1);
+ 				var date4 = nlapiGetCurrentLineItemValue('custcol_hc_date4');
  	nlapiLogExecution('Debug', 'My Date 4: ', date4);
  			}
+ 			else if (myDate2 > myDate1 && myDate2 > myDate3){
+ 				var myDateFinal2 = nlapiDateToString(myDate2);
+ 				nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', myDateFinal2);
+ 			}
+ 			else if (myDate3 > myDate1 && myDate3 > myDate2){
+ 				var myDateFinal3 = nlapiDateToString(myDate3);
+ 				nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', myDateFinal3);
 
-
-
+ 			}
 
 
 
