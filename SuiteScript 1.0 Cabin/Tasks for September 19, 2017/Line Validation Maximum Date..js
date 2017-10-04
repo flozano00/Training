@@ -49,6 +49,9 @@ nlapiLogExecution('Debug', 'Validate Line', "Begin");
  				nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', myDateFinal3);
 
  			}
+ 			else if (myDate1 == myDate2 && myDate1 == myDate2){
+ 				nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', "");
+ 			}
 
 
 

@@ -26,18 +26,18 @@ nlapiLogExecution('Audit', 'Field Change Line Item', 'Begin');
  	 else if ((myDate3 > myDate1) && (myDate3 > myDate2)){
  	 	nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', myDate3);
  	 }
- 	 else if ((myDate1 > myDate2) && (myDate1 > myDate3))
- 	nlapiLogExecution('Debug', 'Custom Field Date 4 Value:', date4)
-
-
- 	
+ 	 else if ((myDate1 > myDate2) && (myDate1 > myDate3)){
+ 	nlapiLogExecution('Debug', 'Custom Field Date 4 Value:', date4);
+ 	}
+ 	else if ((myDate1 == myDate2) && (myDate1 === myDate3)){
+ 		nlapiSetCurrentLineItemValue('item', 'custcol_hc_date4', "");
  	}
 
 
 
 
 
-nlapiLogExecution('Audit', 'Field Change Line Item', 'Begin');
+nlapiLogExecution('Audit', 'Field Change Line Item', 'End');
 
 	}
 	catch(e){
