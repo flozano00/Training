@@ -1,0 +1,96 @@
+You're definitely on the right track there; branching essentially allows us to maintain multiple copies of our file structure so that different contributors can work on different tasks within the project. They could even be working on the exact same files without impacting each other this way. However, the goal of a branch is not to keep it separate and isolated forever. What we want to happen is for those contributors to complete their tasks in their own branch, then *merge* their work into the main codebase (i.e. the `master` branch).We don't want to use branches to *permanently* segregate our files, but rather temporarily, while we are actively working on a feature or fix.then once the task is completed, we want to incorporate everything back into the main codebase on the `master` branch. In that way, the `master` branch is sort of "sacred"; it is the Production-ready code  we *never* want to introduce broken code onto `master`. We write our code in a branch, we test it thoroughly, and then we merge to `master`, usually via a Pull Request.(More on pull requests: https://help.github.com/articles/about-pull-requests/ and https://www.atlassian.com/git/tutorials/making-a-pull-request)
+
+
+We can just create completely separate files (and even folders) within the same branch, so usually my project structure might look something like:
+
+```my-project/
+  src/ <= all my implementation code goes under here
+    myScript.js
+  test/ <= all my testing code goes under a separate folder
+    myScript/ <= I organize my testing code using a folder for each implementation file, we could easily have multiple test files for the same script file
+      myScriptTest.js <= By convention, I end all my testing files with "Test" in the name
+```
+
+[5:06]  
+You do not *have* to organize your projects this way, but it is very helpful to have a consistent folder/file structure that you follow; it makes creating new projects much faster, and it helps you quickly locate different pieces of functionality
+
+
+I highly recommend this article that explains both how and (more importantly) *why* we do branching: https://www.atlassian.com/git/tutorials/using-branches and then this article on merging branches together: https://www.atlassian.com/git/tutorials/git-merge
+
+https://www.atlassian.com/git/tutorials/comparing-workflows
+
+
+I tend to prefer the "Feature Branch Workflow" when I am working on a project individually, and the "Gitflow Workflow" when I am working in a team setting
+
+and lastly, this is a nice visualization of various methods for multiple collaborators to utilize branches: https://www.atlassian.com/git/tutorials/comparing-workflows
+Atlassian
+Git Workflows and Tutorials | Atlassian Git Tutorial
+A breakdown of the most common Git workflows and how to use them: Centralized workflow, Feature branch workflow, Gitflow workflow, and Forking workflow.
+
+[5:11]  
+I tend to prefer the "Feature Branch Workflow" when I am working on a project individually, and the "Gitflow Workflow" when I am working in a team setting
+
+[5:12]  
+I know that's a bombardment of `git` info, but organizing your code and understanding how to utilize branching to streamline your development process is a crucial part of being a software developer. It warrants a lot of study and solid understanding.
+
+
+Great question; so in general I classify the tasks I'm working on into three different categories:
+1. feature - any brand new development or improvement on an existing feature
+2. bugfix - any break fix
+3. chore - any internal work like building tools or optimization or refactoring
+Then, my branch names are basically: `type-of-task/name-of-task`
+
+[10:36]  
+There are also `release` branches, where I name them `release/versionNumber`, as I"ve done in this repo: https://gitlab.com/stoicsoftware/netsuite-sku-analytics/branches
+GitLab
+Branches · Stoic Software / netsuite-sku-analytics
+A collection of Dashboard Portlets that visualize critical SKU sales metrics.
+ 
+
+[10:37]  
+So for example, if I'm building a new sales order approval feature, then I might name the branch `feature/so-approval`
+
+[10:38]  
+or fixing an error with a search filter, maybe `bugfix/search-filter-error`
+
+[10:38]  
+Many git clients will use the `/` in the name and use it to group your branches together and visualize them as folders, so it's a nice visualization of your branch sturcture
+
+[10:39]  
+And one final caveat. When I am working out of some kind of issue tracking system that provides unique IDs for tasks, then i'll use the unique ID in the name of the branch instead
+
+[10:40]  
+so for instance, we used to work out of JIRA, which would have issue IDs like "RR-2148". So if I was working on RR-2148, a bug, then I would name the branch `bugfix/RR-2148`; that way I can very easily connect the code for a specific task with its branch
+
+PR = Public Repository
+
+Question: "" Does the one who do changes within the branch give authorization as well or is their a 3rd party who audits everything?""
+
+That completely depends on the team/company
+
+[3:10]  
+Different companies and teams will have very different processes and change controls
+
+[3:10]  
+There are some teams where anyone can do the merging, and some where there is a "gatekeeper" who is the only one allowed to merge into master
+
+[3:10]  
+The larger the company, the more likely there will be stricter controls on the repository
+
+[3:11]  
+Some teams require a specific number of approvers to approve the PR before it can be merged
+
+new messages
+[3:11]  
+In my last team environment, the process was basically that the whole team had to approve every PR. There were only 3 of us, so 2 people had to approve, and then the developer who created the Pull Request would do the merge
+
+[3:12]  
+It's *usually* best to have the original developer perform the actual merge in case any conflicts arise; the original developer will likely know best how to resolve them without breaking anything. That is not how all teams do it though
+
+[3:12]  
+Conflicts occur when the same area of the same file has been changed in *both* the target branch and the branch you are merging in
+
+You can use issues as a way to document your ideas and ask questions. You could either use #2 as the task, or create a new issue for the task that documents your approach once you've decided
+
+[3:36]  
+this is the most common way to document design decisions/requirements in the real world
