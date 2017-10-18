@@ -1,0 +1,204 @@
+<?xml version="1.0"?><!DOCTYPE pdf PUBLIC "-//big.faceless.org//report" "report-1.1.dtd">
+<pdf>
+<head>
+<#if .locale == "ru_RU">
+    <link name="verdana" type="font" subtype="opentype" src="${nsfont.verdana}" src-bold="${nsfont.verdana_bold}" bytes="2" />
+</#if>
+    <macrolist>
+        <macro id="nlheader">
+            <table style="width: 100%; font-size: 9pt;"><tr>
+	<td rowspan="3" style="padding: 0;"><#if companyInformation.logoUrl?length != 0><img src="${companyInformation.logoUrl}" style="float: left; margin: 7px" /> </#if>${companyInformation.addressText}</td>
+	<td align="right" style="padding: 0;"><span style="font-size: 28pt;">${record@title}</span></td>
+	</tr>
+	<tr>
+	<td align="right" style="padding: 0;"><span style="font-size: 16pt;">#${record.tranid}</span></td>
+	</tr>
+	<tr>
+      <td align="right" style="padding: 0;"><span style="font-size: 10pt;">${record.trandate}</span></td>
+	</tr></table>
+        </macro>
+        <macro id="nlfooter">
+            <table style="width: 100%; font-size: 8pt;"><tr>
+	<td style="padding: 0;"><barcode codetype="code128" showtext="true" value="${record.tranid}"/></td>
+	<td align="right" style="padding: 0;"><pagenumber/> of <totalpages/></td>
+	</tr></table>
+        </macro>
+    </macrolist>
+  <macrolist>
+<macro id="nlheader2"><table style="width: 100%; font-size: 10pt;"><tr>
+	<td rowspan="3" style="padding: 0;"><#if companyInformation.logoUrl?length != 0><img src="${companyInformation.logoUrl}" style="float: left; margin: 7px" /> </#if> </td></tr></table></macro>
+<macro id="nlfooter2"></macro>
+</macrolist>    
+    <style type="text/css">table {
+        <#if .locale == "zh_CN">
+            font-family: stsong, sans-serif;
+        <#elseif .locale == "zh_TW">
+            font-family: msung, sans-serif;
+        <#elseif .locale == "ja_JP">
+            font-family: heiseimin, sans-serif;
+        <#elseif .locale == "ko_KR">
+            font-family: hygothic, sans-serif;
+        <#elseif .locale == "ru_RU">
+            font-family: verdana;
+        <#else>
+            font-family: sans-serif;
+        </#if>
+            font-size: 9pt;
+            table-layout: fixed;
+        }
+        th {
+            font-weight: bold;
+            font-size: 8pt;
+            vertical-align: middle;
+            padding: 5px 6px 3px;
+            background-color: #e3e3e3;
+            color: #333333;
+        }
+        td {
+            padding: 4px 6px;
+        }
+</style>
+</head>
+<body header="nlheader" header-height="10%" footer="nlfooter" footer-height="20pt" padding="0.5in 0.5in 0.5in 0.5in" size="Letter">
+    <table style="width: 100%; margin-top: 10px;"><tr>
+	<td colspan="3" style="font-size: 8pt; padding: 6px 0 2px; font-weight: bold; color: #333333;">${record.billaddress@label}</td>
+	<td colspan="3" style="font-size: 8pt; padding: 6px 0 2px; font-weight: bold; color: #333333;">${record.shipaddress@label}</td>
+	<td colspan="3" style="font-size: 10pt; background-color: #e3e3e3; font-weight: bold;">${record.total@label?upper_case}</td>
+	</tr>
+	<tr>
+	<td colspan="3" style="padding: 0;">${record.billaddress}</td>
+	<td colspan="3" style="padding: 0;">${record.shipaddress}</td>
+	<td align="right" colspan="3" style="font-size: 18pt; padding-top: 20px; background-color: #e3e3e3;">${record.total}</td>
+	</tr></table>
+
+<table style="width: 100%; margin-top: 10px;"><tr>
+	<th>${record.paymentmethod@label}</th>
+	<th>${record.otherrefnum@label}</th>
+	<th>${record.shipmethod@label}</th>
+	<th>${record.shipdate@label}</th>
+	</tr>
+	<tr>
+	<td style="padding-top: 2px;">${record.paymentmethod}</td>
+	<td style="padding-top: 2px;">${record.otherrefnum}</td>
+	<td style="padding-top: 2px;">${record.shipmethod}</td>
+	<td style="padding-top: 2px;">${record.shipdate}</td>
+	</tr></table>
+<#if record.item?has_content>
+
+<table style="width: 100%; margin-top: 10px;"><!-- start items --><#list record.item as item><#if item_index==0>
+<thead>
+	<tr>
+	<th align="center" colspan="3" style="padding: 10px 6px;">${item.quantity@label}</th>
+	<th colspan="12" style="padding: 10px 6px;">${item.item@label}</th>
+	<th align="right" colspan="4" style="padding: 10px 6px;">${item.rate@label}</th>
+	<th align="right" colspan="4" style="padding: 10px 6px;">${item.amount@label}</th>
+	</tr>
+</thead>
+</#if><tr>
+	<td align="center" colspan="3" line-height="150%">${item.quantity}</td>
+	<td colspan="12"><span style="font-weight: bold; line-height: 150%; color: #333333;">${item.item}</span><br />${item.description}</td>
+	<td align="right" colspan="4">${item.rate}</td>
+	<td align="right" colspan="4">${item.amount}</td>
+	</tr>
+	</#list><!-- end items --></table>
+
+<hr style="width: 100%; color: #d3d3d3; background-color: #d3d3d3; height: 1px;" /></#if>
+<table style="page-break-inside: avoid; width: 100%; margin-top: 10px;"><tr>
+	<td colspan="4">${record.message}</td>
+	<td align="right" style="font-weight: bold; color: #333333;">${record.subtotal@label}</td>
+	<td align="right">${record.subtotal}</td>
+	</tr>
+	<tr>
+	<td colspan="4">&nbsp;</td>
+	<td align="right" style="font-weight: bold; color: #333333;">${record.taxtotal@label} (${record.taxrate}%)</td>
+	<td align="right">${record.taxtotal}</td>
+	</tr>
+	<tr style="background-color: #e3e3e3; line-height: 200%;">
+	<td background-color="#ffffff" colspan="4">&nbsp;</td>
+	<td align="right" style="font-weight: bold; color: #333333;">${record.total@label}</td>
+	<td align="right">${record.total}</td>
+	</tr></table>
+  <table>
+  <tr>
+    <td style="padding: 5px 10px 5px 5px;">
+Domestic Wire Instructions:<br/>
+Beneficiary: DIALECTIC DISTRIBUTION<br/>
+Business Address:<br/>
+1275 Bloomfield Ave,<br/>
+Bldg. # 8, Unit # 66<br/>
+Fairfield NJ, 07004<br/>
+    </td>
+    <td>
+International Wire Instructions:<br/>
+DIALECTIC DISTRIBUTION<br/>
+Business Address:<br/>
+1275 Bloomfield Ave,<br/>
+Bldg. #8, Unit #66<br/>
+Fairfield NJ, 07004<br/>
+ </td>
+    </tr>
+    <tr>
+      <td>
+Bank Name: Bank of America<br/>
+Bank Address: Bank of America, N.A<br/>
+208 Harristown Road<br/>
+Glen Rock, NJ 07452<br/>
+Acct #:381038648616<br/>
+WIRE Routing # 026009593<br/>
+      </td>
+      <td>
+Bank Name: Bank of America<br/>
+Bank Address: Bank of America, N.A<br/>
+208 Harristown Road<br/>
+Glen Rock, NJ 07452<br/>
+Acct #:381038648616<br/>
+Swift Code # BOFAUS3N<br/>
+WIRE Routing # 026009593<br/>
+      </td>
+    </tr>
+  </table>
+<pbr header="nlheader2" footer="nlfooter2" size="Letter" />
+<p style="font-size: 10pt; text-align: center;"><center><strong><u>RMA AND WARRANTY POLICY</u></strong><br />
+&nbsp;<br />
+Dialectic Distribution&rsquo;s goal is to provide the highest level of service possible to its<br />
+customers. To expedite the Return Material Authorization (RMA) process, please<br />
+adhere to the following requirements:<br />
+&nbsp;<br />
+<strong>ORIGINAL PACKAGING:</strong><br />
+All products shipped in an OEM package, must be returned in the original OEM<br />
+Container with all accessories.<br />
+&nbsp;<br />
+<strong>RETURN MATERIAL AUTHORIZATION:</strong><br />
+<strong>Defective products covered under manufacturer?s warranty should be</strong><br />
+<strong>returned to the manufacturer and not to Dialectic Distribution.</strong><br />
+&nbsp;<br />
+Dialectic’s RMA approval period is 15 days from original shipment date unless otherwise specified on your sales order. Customer modifications, physical abuse or misuse (i.e. non-factory labels, or improper return packaging) shall void all warranties.<br />
+An RMA Form can be obtained by emailing rma@dialecticdistribution.com or by downloading one from our website at www.dialecticdistribution.com<br />
+Tracking number of returning products must be submitted to us within 10 days of RMA approval or your request will be cancelled<br />
+&nbsp;<br />
+&nbsp;<br />
+&nbsp;<br />
+<strong>All products being returned to Dialectic must have an RMA Number issued by Dialectic Distribution.</strong><br />
+<strong>Any returned product not referencing an RMA number will be refused</strong>.<br />
+The RMA number must be clearly marked on the outside of the box.<br />
+A copy of the original Invoice, part number, and a full description for the defective product available must be included. There are no exceptions; an RMA will not be processed without ALL the requested data.<br />
+We cannot accept RMAs shipped back COD or freight-collect, these shipments will be refused (all incoming shipments are at customer expense).<br />
+A signed proof of delivery will be required on all lost package claims.<br />
+&nbsp;<br />
+<strong>CREDIT FOR DEFECTIVE PRODUCT</strong><br />
+Once the product is received, it will be tested, and credited appropriately.<br />
+Credit will only be issued for defective items.&nbsp;<strong>Products found to be not</strong><br />
+<strong>defective will be returned to the customer at the customer?s expense.</strong><br />
+Any deductions taken by a customer before product has been received, tested, and<br />
+credited by Dialectic will be charged back to the customer. Any customer that deducts<br />
+off their credit line will have their credit line revoked.<br />
+&nbsp;<br />
+<strong>REPAIR, REPLACE OR CREDIT:</strong><br />
+Dialectic Distribution reserves the right to repair, replace, or credit any warranted<br />
+defective product at its own discretion.<br />
+&nbsp;<br />
+Return all products to:&nbsp;<strong>Dialectic Distribution 1275 Bloomfield Ave BLDG 8 Suite 66</strong><br />
+<strong>Fairfield NJ 07004</strong></center></p>
+</body>
+</pdf>
+
